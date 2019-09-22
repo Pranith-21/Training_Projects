@@ -1,4 +1,4 @@
-Print in a single line the sum of the integers in the array.  
+//Print in a single line the sum of the integers in the array.  
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,4 +19,29 @@ int main()
     printf("%d\n", sum);
     //free(arr);
     return 0;
+}
+
+//repetitive positive integer
+
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    int n, sum=0,A,a[70],i;
+	printf("enter the size of the array");
+	scanf("%d",&n);
+	printf("enetr the elements ");
+	for(i=0;i<n;i++)
+	scanf("%d",&a[i]);
+    int sum1=(n*(n+1))/2;
+    for(i=0;i<n;i++)
+    {
+        sum+=a[i];
+    }
+    A=sum1-sum;
+    printf("%d",A);
+    return 0;
+    
+    
 }
