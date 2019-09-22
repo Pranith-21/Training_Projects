@@ -1,0 +1,61 @@
+/STACK INPLEMENTATION USING LINKED LIST
+#include <stdio.h>
+#include<stdlib.h>
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+struct Node *head=NULL;
+
+void pop();
+void push();
+
+
+
+
+void main() 
+{   int c,f=1;
+	while(f)
+    {
+    printf("enter your choice 1.pop 2.push 3.exit \n");
+	
+    scanf("%d",&c);
+
+    switch(c)
+	{
+	    case 1: pop();
+	            break;
+	    case 2:push();
+	            break;
+	   default: f=0;
+	}
+	
+    }
+}
+	
+	
+	
+void push()
+{   int d;
+    struct Node *ptr=(struct Node*)malloc(sizeof(struct Node));
+    printf("enter the new node data:");
+    scanf("%d",&d);
+    ptr->data=d;
+    ptr->next=head;
+    head=ptr;
+    printf("%d is top of stack \n",ptr->data);
+}
+
+
+void pop()
+{
+    if(head==NULL)
+        printf("stack underflow \n");
+    else
+    {
+        printf("%d is popped \n",head->data);
+        head=head->next;
+    }
+}
