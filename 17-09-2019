@@ -1,0 +1,98 @@
+//INSERTING THE NODE TO A SORTED LINKED LIST
+#include <stdio.h>
+#include<stdlib.h>
+struct Node
+{
+    int data;
+    struct Node *next;
+}*ptr,*x;
+
+struct Node *head=NULL;
+void create();
+void insert();
+void display();
+int l=0;
+
+
+
+void main() 
+{   int c,f=1;
+	while(f)
+    {
+    printf("enter your choice 1.insert 2.display 3.exit \n");
+	
+    scanf("%d",&c);
+    create();
+    switch(c)
+	{
+	   
+	   case 1:insert();
+	            break;
+	   case 2:display();
+	            break;
+	   default: f=0;
+	}
+	
+    }
+}
+	
+	
+	
+void create()
+{   int d=0;
+    for(l=0;l<=10;l++)
+    {
+        
+        d=d+10;
+    
+        struct Node *n=(struct Node*)malloc(sizeof(struct Node));
+        n->data=d;
+        n->next=NULL;
+        if(l==0)
+        {    
+             ptr=n;
+             head=ptr;
+             l=1;
+        }
+        else
+        {   
+            ptr->next=n;
+            ptr=n;
+        }
+        
+    }
+}
+
+void display()
+{   x=head;
+     while(x->next!=NULL)
+    {
+   
+       printf("%d \n",x->data);
+       x=x->next;
+    }
+    
+}
+
+
+void insert()
+{   int d,i;
+    printf("enter the new node data:");
+    scanf("%d",&d);
+    struct Node *k=head;
+    while(k->next!=NULL)
+    {
+        if(d>(k->data)&& d<((k->next)->data))
+        {
+            struct Node *r=(struct Node*)malloc(sizeof(struct Node));
+
+            r->data=d;
+            r->next=k->next;
+            k->next=r;
+
+        }
+        k=k->next;
+
+    }
+    
+}
