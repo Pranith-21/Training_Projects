@@ -24,3 +24,69 @@ long int fact(int n)
         return n*fact(n-1);
 
 }
+
+
+//factorial using iterative
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    long int f=1;
+    printf("enter a no.");
+    scanf("%d",&n);
+    if(n==0)
+    {
+        printf("%d",1);
+        exit(0);
+    }
+    if(n<0)
+    {
+        printf("not possible");
+        exit(0);
+    }
+    for(int i=2;i<=n;i++)
+        f=f*i;
+    printf("%ld",f);
+    return 0;
+}
+
+//fib using iterative
+#include <stdio.h>
+
+int main()
+{
+    int i,a=1,b=0,c=0,n;
+    printf("enter the given input number");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        b=a;
+        a=c;
+        c=b+a;
+        printf("%d ",c);
+    }
+    
+}
+
+//fib using recursive
+#include <stdio.h>
+
+int main()
+{
+    int i,a=0,n;
+    printf("enter the series");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        printf("%d",fab(a));
+        a++;
+    }
+}
+int fab(int b)
+{
+    if(b<=1)
+    return b;
+    return fab(b-1)+fab(b-2);
+}
