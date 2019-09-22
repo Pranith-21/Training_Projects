@@ -30,3 +30,67 @@ int main()
    for(i=0;i<k;i++)
    printf("%d ",b[i]);
 }
+ //prime using recursive
+ #include<stdio.h>
+
+int isPrime(int,int);
+
+int main(){
+
+    int num,prime;
+
+    printf("Enter a positive number: ");
+    scanf("%d",&num);
+
+    prime = isPrime(num,num/2);
+
+   if(prime==1)
+        printf("%d is a prime number",num);
+   else
+      printf("%d is not a prime number",num);
+
+   return 0;
+}
+
+int isPrime(int num,int i){
+
+    if(i==1){
+        return 1;
+    }else{
+       if(num%i==0)
+         return 0;
+       else
+         isPrime(num,i-1);
+    }
+}
+
+//prime using iterative
+#include <stdio.h>
+int main()
+{
+    int n, i, flag = 0;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    for(i = 2; i <= n/2; ++i)
+    {
+        // condition for nonprime number
+        if(n%i == 0)
+        {
+            flag = 1;
+            break;
+        }
+    }
+    if (n == 1)
+    {
+      printf("1 is neither a prime nor a composite number.");
+    }
+    else
+    {
+        if (flag == 0)
+          printf("%d is a prime number.", n);
+        else
+          printf("%d is not a prime number.", n);
+    }
+
+    return 0;
+}
