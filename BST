@@ -1,0 +1,111 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    struct node *l,*r;
+    int d;
+}*root=NULL;
+   struct node *ptr=NULL;
+ 
+
+void insert(struct node *s1,int data)
+{
+
+    if(root==NULL)
+     {
+        root=s1;
+     }
+     else if(data<=ptr->d)
+     {
+         if(ptr->l!=NULL)
+         {
+             ptr=ptr->l;
+         
+            insert(ptr,data);
+         }
+        else
+            ptr->l=s1;
+     }  
+    else if(data>ptr->d)
+     {
+         if(ptr->r!=NULL)
+         {
+             ptr=ptr->r;
+         
+            insert(ptr,data);
+         }
+        else
+            ptr->r=s1;
+     }  
+    
+}
+
+void delete(int n){}
+void search(int n){}
+void display(struct node *ptr)
+{   if(ptr!=NULL)
+    printf("%d",ptr->d);
+    
+    display(ptr->l);
+    display(ptr->r);
+
+    
+}
+int main()
+{
+    
+    int n,data,c,k=1;
+    printf("1.insert 2.delete 3.search 4.exit");
+
+    while(k!=0)
+    {
+    scanf("%d",&c);        
+    switch(c)
+    {
+        case 1:
+            printf("enter the data");
+            scanf("%d",&data);
+            ptr=root;
+            struct node *s1=(struct node*)malloc(sizeof(struct node));
+            s1->d=data;
+            s1->l=NULL;
+            s1->r=NULL;
+            insert(s1,data);
+            break;
+        case 2:
+     //   scanf("%d",&n);
+     //   delete(n);
+        display(root);
+        break;
+        
+        case 3:
+        scanf("%d",&n);
+        search(n);
+        break;
+        case 4:k=0;
+    }
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
